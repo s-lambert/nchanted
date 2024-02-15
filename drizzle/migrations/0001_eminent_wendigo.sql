@@ -1,0 +1,1 @@
+ALTER TABLE disciplines ADD `grimoire_id` text NOT NULL;
