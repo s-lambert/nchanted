@@ -1,6 +1,6 @@
 import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import { CartesianGrid, Line, LineChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
+import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 import { getCodeCoverage } from '~/models/code-coverage.server';
 import { card, cardHeader } from './dashboard_index.css';
 
@@ -20,7 +20,13 @@ export default function Dashboard() {
         <h2 className={cardHeader}>Code Coverage</h2>
         <div style={{ height: '100%', width: '100%' }}>
           <ResponsiveContainer>
-            <LineChart margin={{ top: 0, left: 0, right: 5, bottom: 0 }} data={codeCoverage}>
+            <AreaChart margin={{ top: 5, left: 0, right: 5, bottom: 0 }} data={codeCoverage}>
+              <defs>
+                <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
+                  <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+                </linearGradient>
+              </defs>
               <YAxis width={28} stroke="white" />
               <XAxis
                 dataKey="time"
@@ -30,9 +36,8 @@ export default function Dashboard() {
                 textAnchor="end"
                 stroke="white"
               />
-              <CartesianGrid stroke="#555" />
-              <Line type="monotone" dataKey="statementPercent" stroke="white" />
-            </LineChart>
+              <Area dot dataKey="statementPercent" stroke="white" fillOpacity={1} fill="url(#colorPv)" />
+            </AreaChart>
           </ResponsiveContainer>
         </div>
       </div>
