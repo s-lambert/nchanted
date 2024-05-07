@@ -1,21 +1,30 @@
-## Contributing
+## 🤝 Contributing
 
-This is a personal learning project, don't.
+### Clone the repo
 
-## Ideas
+```bash
+git clone https://github.com/xyz/zipzod@latest
+cd zipzod
+```
 
-Look into double tileset and see if it can be adapted into CSS, I think the idea
-could work because you would have your bordering/padding on the 2nd grid but then
-your actual items on the 1st grid, so there's always a offset amount of pixels.
+### Build the project
 
-0 10 20
-10
-20
-+---------------
-| +-------------
-| | Text Content
+```bash
+go build
+```
 
+### Run the project
 
-TODOS:
-- Make a dashboard page with dot paper background
-- Framer motion for route transitions? can you do route transitions in remix?
+```bash
+./zipzod -i ./input -o ./output.zip
+```
+
+### Run the tests
+
+```bash
+go test ./...
+```
+
+### Submit a pull request
+
+If you'd like to contribute, please fork the repository and open a pull request to the `main` branch.
