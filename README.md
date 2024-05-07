@@ -1,4 +1,4 @@
-# Contributing
+## Contributing
 
 This is a personal learning project, don't.
 
