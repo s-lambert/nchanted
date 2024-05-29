@@ -10,8 +10,8 @@ export const loader = async () => {
   });
 };
 
-const goalPercent = 40;
-const projectEnd = new Date('2024/03/22').getTime();
+const goalPercent = 60;
+const projectEnd = new Date('2024/07/22').getTime();
 
 export default function Dashboard() {
   const { codeCoverage } = useLoaderData<typeof loader>();
@@ -31,7 +31,7 @@ export default function Dashboard() {
                   <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <YAxis width={28} stroke="white" type="number" domain={[30, goalPercent]} />
+              <YAxis width={28} stroke="white" type="number" />
               <XAxis
                 type="number"
                 domain={[start.time, projectEnd]}
